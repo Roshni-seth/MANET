@@ -1,0 +1,1773 @@
+version 3
+run General-0-20241022-10:47:14-12652
+attr configname General
+attr datetime 20241022-10:47:14
+attr datetimef 20241022-104714
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network project
+attr processid 12652
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../../../../inet-master/inet-master/images
+config network project
+config real-time-limit 15s
+config sim-time-limit 10s
+config **.client.numApps 1
+config **.client1.app[0].typename TcpSessionApp
+config **.client1.app[0].connectAddress "\"server\""
+config **.client1.app[0].connectPort 1000
+config **.client1.app[0].sendBytes 1MB
+config **.client2.numApps 1
+config **.client2.app[0].typename TcpSessionApp
+config **.client2.app[0].connectAddress "\"server\""
+config **.client2.app[0].connectPort 1000
+config **.client2.app[0].sendBytes 1MB
+config **.client3.numApps 1
+config **.client3.app[0].typename TcpSessionApp
+config **.client3.app[0].connectAddress "\"server\""
+config **.client3.app[0].connectPort 1000
+config **.client3.app[0].sendBytes 1MB
+config **.client4.numApps 1
+config **.client4.app[0].typename TcpSessionApp
+config **.client4.app[0].connectAddress "\"server\""
+config **.client4.app[0].connectPort 1000
+config **.client4.app[0].sendBytes 1MB
+config **.server.numApps 1
+config **.server.app[0].typename TcpEchoApp
+config **.server.app[0].localPort 1000
+
+vector 0 project.server.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 1 project.server.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 2 project.server.eth[0].mac transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 3 project.server.eth[1].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 4 project.server.eth[1].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 5 project.server.eth[1].mac transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 6 project.server.eth[2].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 7 project.server.eth[2].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 8 project.server.eth[2].mac transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 9 project.server.eth[3].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 10 project.server.eth[3].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 11 project.server.eth[3].mac transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 12 project.server.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 13 project.server.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 14 project.server.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 15 project.client2.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 16 project.client2.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 17 project.client2.eth[0].mac transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 18 project.client2.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 19 project.client2.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 20 project.client2.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 21 project.client1.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 22 project.client1.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 23 project.client1.eth[0].mac transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 24 project.client1.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 25 project.client1.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 26 project.client1.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 27 project.client3.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 28 project.client3.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 29 project.client3.eth[0].mac transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 30 project.client3.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 31 project.client3.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 32 project.client3.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 33 project.client4.eth[0].queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 34 project.client4.eth[0].queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 35 project.client4.eth[0].mac transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 36 project.client4.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 37 project.client4.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 38 project.client4.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 39 project.server.tcp.conn-0 state:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 40 project.client2.tcp.conn-4 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 41 project.client2.tcp.conn-4 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 42 project.client2.tcp.conn-4 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 43 project.client2.tcp.conn-4 sndAck:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 44 project.client2.tcp.conn-4 state:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 45 project.client3.tcp.conn-5 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 46 project.client3.tcp.conn-5 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 47 project.client3.tcp.conn-5 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 48 project.client3.tcp.conn-5 sndAck:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 49 project.client3.tcp.conn-5 state:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 50 project.client4.tcp.conn-6 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 51 project.client4.tcp.conn-6 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 52 project.client4.tcp.conn-6 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 53 project.client4.tcp.conn-6 sndAck:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 54 project.client4.tcp.conn-6 state:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 55 project.client2.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, packetBytes"
+vector 56 project.client3.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, packetBytes"
+vector 57 project.client4.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, packetBytes"
+vector 58 project.client2.ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 59 project.client3.ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 60 project.client4.ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 61 project.client2.eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 62 project.client2.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 63 project.client2.eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 64 project.client2.eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 65 project.client2.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 66 project.client2.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 67 project.client2.eth[0].mac utilization:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "100 * utilization(count(transmissionStarted) - count(transmissionEnded))"
+attr title utilization
+attr unit %
+vector 68 project.client3.eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 69 project.client3.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 70 project.client3.eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 71 project.client3.eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 72 project.client3.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 73 project.client3.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 74 project.client3.eth[0].mac utilization:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "100 * utilization(count(transmissionStarted) - count(transmissionEnded))"
+attr title utilization
+attr unit %
+vector 75 project.client4.eth[0].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 76 project.client4.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 77 project.client4.eth[0].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 78 project.client4.eth[0].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 79 project.client4.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 80 project.client4.eth[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 81 project.client4.eth[0].mac utilization:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "100 * utilization(count(transmissionStarted) - count(transmissionEnded))"
+attr title utilization
+attr unit %
+vector 82 project.client2.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 83 project.client2.eth[0].mac throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 84 project.client3.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 85 project.client3.eth[0].mac throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 86 project.client4.eth[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 87 project.client4.eth[0].mac throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 88 project.server.eth[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 89 project.server.eth[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 90 project.server.eth[2].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 91 project.server.eth[2].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 92 project.server.eth[3].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 93 project.server.eth[3].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 94 project.server.ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 95 project.server.ipv4.arp arpReplySent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpReplySent
+attr title "ARP replies sent, packetBytes"
+vector 96 project.server.ethernet encapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source encapPk
+attr title "packets encapsulated, packetBytes"
+vector 97 project.server.eth[1].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 98 project.server.eth[1].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 99 project.server.eth[1].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 100 project.server.eth[1].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 101 project.server.eth[1].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 102 project.server.eth[1].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 103 project.server.eth[1].mac utilization:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "100 * utilization(count(transmissionStarted) - count(transmissionEnded))"
+attr title utilization
+attr unit %
+vector 104 project.server.eth[2].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 105 project.server.eth[2].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 106 project.server.eth[2].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 107 project.server.eth[2].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 108 project.server.eth[2].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 109 project.server.eth[2].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 110 project.server.eth[2].mac utilization:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "100 * utilization(count(transmissionStarted) - count(transmissionEnded))"
+attr title utilization
+attr unit %
+vector 111 project.server.eth[3].queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 112 project.server.eth[3].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 113 project.server.eth[3].queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 114 project.server.eth[3].queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 115 project.server.eth[3].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 116 project.server.eth[3].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetReceivedFromUpper
+attr title "packet bytes from higher layer, packetBytes"
+vector 117 project.server.eth[3].mac utilization:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "100 * utilization(count(transmissionStarted) - count(transmissionEnded))"
+attr title utilization
+attr unit %
+vector 118 project.server.eth[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 119 project.server.eth[1].mac throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 120 project.server.eth[2].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 121 project.server.eth[2].mac throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 122 project.server.eth[3].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToLower
+attr title "packets transmitted, packetBytes"
+vector 123 project.server.eth[3].mac throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 124 project.client2.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 125 project.client2.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 126 project.client3.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 127 project.client3.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 128 project.client4.eth[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source rxPkOk
+attr title "packets received OK, packetBytes"
+vector 129 project.client4.eth[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSentToUpper
+attr title "packets passed to higher layer, packetBytes"
+vector 130 project.client2.ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 131 project.client3.ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 132 project.client4.ethernet decapPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source decapPk
+attr title "packets decapsulated, packetBytes"
+vector 133 project.server.tcp.conn-0 rcvSeq:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 134 project.server.tcp.conn-0 rcvAck:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 135 project.server.tcp.conn-0 tcpRcvPayloadBytes:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 136 project.server.tcp.conn-7 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 137 project.server.tcp.conn-7 sndWnd:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 138 project.server.tcp.conn-7 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 139 project.server.tcp.conn-7 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 140 project.server.tcp.conn-7 sndAck:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 141 project.server.tcp.conn-7 state:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 142 project.server.tcp.conn-8 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 143 project.server.tcp.conn-8 sndWnd:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 144 project.server.tcp.conn-8 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 145 project.server.tcp.conn-8 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 146 project.server.tcp.conn-8 sndAck:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 147 project.server.tcp.conn-8 state:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 148 project.server.tcp.conn-9 rcvAdv:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 149 project.server.tcp.conn-9 sndWnd:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 150 project.server.tcp.conn-9 tcpRcvQueueBytes:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 151 project.server.tcp.conn-9 rcvWnd:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 152 project.server.tcp.conn-9 sndAck:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 153 project.server.tcp.conn-9 state:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+vector 154 project.server.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 155 project.server.eth[0].queue flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPulled)))
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 156 project.server.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 157 project.server.eth[0].queue flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPushStarted)))
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 158 project.server.eth[0].mac throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 159 project.server.eth[0].mac utilization:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "100 * utilization(count(transmissionStarted) - count(transmissionEnded))"
+attr title utilization
+attr unit %
+vector 160 project.server.eth[1].queue flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPulled)))
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 161 project.server.eth[1].queue flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPushStarted)))
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 162 project.server.eth[2].queue flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPulled)))
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 163 project.server.eth[2].queue flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPushStarted)))
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 164 project.server.eth[3].queue flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPulled)))
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 165 project.server.eth[3].queue flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPushStarted)))
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 166 project.client2.eth[0].queue flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPulled)))
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 167 project.client2.eth[0].queue flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPushStarted)))
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 168 project.client1.eth[0].queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 169 project.client1.eth[0].queue flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPulled)))
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 170 project.client1.eth[0].queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 171 project.client1.eth[0].queue flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPushStarted)))
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 172 project.client1.eth[0].mac throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 173 project.client1.eth[0].mac utilization:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source "100 * utilization(count(transmissionStarted) - count(transmissionEnded))"
+attr title utilization
+attr unit %
+vector 174 project.client3.eth[0].queue flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPulled)))
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 175 project.client3.eth[0].queue flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPushStarted)))
+attr title "flow specific incoming data rate"
+attr unit bps
+vector 176 project.client4.eth[0].queue flowOutgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPulled)))
+attr title "flow specific outgoing data rate"
+attr unit bps
+vector 177 project.client4.eth[0].queue flowIncomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(flowPacketLength(demuxFlow(packetPushStarted)))
+attr title "flow specific incoming data rate"
+attr unit bps
+0	0	0	0
+0	0	0	0
+0	0	0	0
+0	0	0	0
+0	0	0	0
+1	0	0	0
+1	0	0	0
+1	0	0	0
+1	0	0	0
+1	0	0	0
+2	0	0	0
+2	0	0	0
+3	0	0	0
+3	0	0	0
+3	0	0	0
+3	0	0	0
+3	0	0	0
+3	32	1.00000581	0
+4	0	0	0
+4	0	0	0
+4	0	0	0
+4	0	0	0
+4	0	0	0
+4	32	1.00000581	0
+5	0	0	0
+5	0	0	0
+5	32	1.00000581	1
+5	38	1.00001157	0
+6	0	0	0
+6	0	0	0
+6	0	0	0
+6	0	0	0
+6	0	0	0
+6	33	1.00000581	0
+7	0	0	0
+7	0	0	0
+7	0	0	0
+7	0	0	0
+7	0	0	0
+7	33	1.00000581	0
+8	0	0	0
+8	0	0	0
+8	33	1.00000581	1
+8	39	1.00001157	0
+9	0	0	0
+9	0	0	0
+9	0	0	0
+9	0	0	0
+9	0	0	0
+9	34	1.00000581	0
+10	0	0	0
+10	0	0	0
+10	0	0	0
+10	0	0	0
+10	0	0	0
+10	34	1.00000581	0
+11	0	0	0
+11	0	0	0
+11	34	1.00000581	1
+11	40	1.00001157	0
+12	0	0	0
+13	0	0	0
+14	0	0	0
+15	0	0	0
+15	0	0	0
+15	0	0	0
+15	0	0	0
+15	0	0	0
+15	14	1	0
+15	53	1.00001162	0
+16	0	0	0
+16	0	0	0
+16	0	0	0
+16	0	0	0
+16	0	0	0
+16	14	1	0
+16	53	1.00001162	0
+17	0	0	0
+17	0	0	0
+17	14	1	1
+17	17	1.00000576	0
+17	53	1.00001162	1
+17	59	1.00001738	0
+18	0	0	0
+19	0	0	0
+20	0	0	0
+21	0	0	0
+21	0	0	0
+21	0	0	0
+21	0	0	0
+21	0	0	0
+22	0	0	0
+22	0	0	0
+22	0	0	0
+22	0	0	0
+22	0	0	0
+23	0	0	0
+23	0	0	0
+24	0	0	0
+25	0	0	0
+26	0	0	0
+27	0	0	0
+27	0	0	0
+27	0	0	0
+27	0	0	0
+27	0	0	0
+27	15	1	0
+27	54	1.00001162	0
+28	0	0	0
+28	0	0	0
+28	0	0	0
+28	0	0	0
+28	0	0	0
+28	15	1	0
+28	54	1.00001162	0
+29	0	0	0
+29	0	0	0
+29	15	1	1
+29	18	1.00000576	0
+29	54	1.00001162	1
+29	60	1.00001738	0
+30	0	0	0
+31	0	0	0
+32	0	0	0
+33	0	0	0
+33	0	0	0
+33	0	0	0
+33	0	0	0
+33	0	0	0
+33	16	1	0
+33	55	1.00001162	0
+34	0	0	0
+34	0	0	0
+34	0	0	0
+34	0	0	0
+34	0	0	0
+34	16	1	0
+34	55	1.00001162	0
+35	0	0	0
+35	0	0	0
+35	16	1	1
+35	19	1.00000576	0
+35	55	1.00001162	1
+35	61	1.00001738	0
+36	0	0	0
+37	0	0	0
+38	0	0	0
+39	1	0	2
+40	5	1	0
+41	5	1	7504
+42	5	1	7504
+43	5	1	0
+44	5	1	3
+45	6	1	0
+46	6	1	7504
+47	6	1	7504
+48	6	1	0
+49	6	1	3
+50	7	1	0
+51	7	1	7504
+52	7	1	7504
+53	7	1	0
+54	7	1	3
+55	8	1	28
+56	9	1	28
+57	10	1	28
+58	11	1	28
+58	50	1.00001162	44
+59	12	1	28
+59	51	1.00001162	44
+60	13	1	28
+60	52	1.00001162	44
+61	14	1	368
+61	53	1.00001162	496
+62	14	0.1	0
+62	14	0.2	0
+62	14	0.3	0
+62	14	0.4	0
+62	14	0.5	0
+62	14	0.6	0
+62	14	0.7	0
+62	14	0.8	0
+62	14	0.9	0
+62	14	1	0
+62	75	1.00001743	49569707.401033
+63	14	1	0
+63	53	1.00001162	0
+64	14	1	368
+64	53	1.00001162	496
+65	14	0.1	0
+65	14	0.2	0
+65	14	0.3	0
+65	14	0.4	0
+65	14	0.5	0
+65	14	0.6	0
+65	14	0.7	0
+65	14	0.8	0
+65	14	0.9	0
+65	14	1	0
+65	75	1.00001743	49569707.401033
+66	14	1	46
+66	53	1.00001162	62
+67	14	0.1	0
+67	14	0.2	0
+67	14	0.3	0
+67	14	0.4	0
+67	14	0.5	0
+67	14	0.6	0
+67	14	0.7	0
+67	14	0.8	0
+67	14	0.9	0
+67	14	1	0
+67	75	1.00001743	66.092943201377
+68	15	1	368
+68	54	1.00001162	496
+69	15	0.1	0
+69	15	0.2	0
+69	15	0.3	0
+69	15	0.4	0
+69	15	0.5	0
+69	15	0.6	0
+69	15	0.7	0
+69	15	0.8	0
+69	15	0.9	0
+69	15	1	0
+69	75	1.00001743	49569707.401033
+70	15	1	0
+70	54	1.00001162	0
+71	15	1	368
+71	54	1.00001162	496
+72	15	0.1	0
+72	15	0.2	0
+72	15	0.3	0
+72	15	0.4	0
+72	15	0.5	0
+72	15	0.6	0
+72	15	0.7	0
+72	15	0.8	0
+72	15	0.9	0
+72	15	1	0
+72	75	1.00001743	49569707.401033
+73	15	1	46
+73	54	1.00001162	62
+74	15	0.1	0
+74	15	0.2	0
+74	15	0.3	0
+74	15	0.4	0
+74	15	0.5	0
+74	15	0.6	0
+74	15	0.7	0
+74	15	0.8	0
+74	15	0.9	0
+74	15	1	0
+74	75	1.00001743	66.092943201377
+75	16	1	368
+75	55	1.00001162	496
+76	16	0.1	0
+76	16	0.2	0
+76	16	0.3	0
+76	16	0.4	0
+76	16	0.5	0
+76	16	0.6	0
+76	16	0.7	0
+76	16	0.8	0
+76	16	0.9	0
+76	16	1	0
+76	75	1.00001743	49569707.401033
+77	16	1	0
+77	55	1.00001162	0
+78	16	1	368
+78	55	1.00001162	496
+79	16	0.1	0
+79	16	0.2	0
+79	16	0.3	0
+79	16	0.4	0
+79	16	0.5	0
+79	16	0.6	0
+79	16	0.7	0
+79	16	0.8	0
+79	16	0.9	0
+79	16	1	0
+79	75	1.00001743	49569707.401033
+80	16	1	46
+80	55	1.00001162	62
+81	16	0.1	0
+81	16	0.2	0
+81	16	0.3	0
+81	16	0.4	0
+81	16	0.5	0
+81	16	0.6	0
+81	16	0.7	0
+81	16	0.8	0
+81	16	0.9	0
+81	16	1	0
+81	75	1.00001743	66.092943201377
+82	17	1.00000576	64
+82	59	1.00001738	64
+83	17	0.1	0
+83	17	0.2	0
+83	17	0.3	0
+83	17	0.4	0
+83	17	0.5	0
+83	17	0.6	0
+83	17	0.7	0
+83	17	0.8	0
+83	17	0.9	0
+83	17	1	0
+83	75	1.00001743	66092943.201377
+84	18	1.00000576	64
+84	60	1.00001738	64
+85	18	0.1	0
+85	18	0.2	0
+85	18	0.3	0
+85	18	0.4	0
+85	18	0.5	0
+85	18	0.6	0
+85	18	0.7	0
+85	18	0.8	0
+85	18	0.9	0
+85	18	1	0
+85	75	1.00001743	66092943.201377
+86	19	1.00000576	64
+86	61	1.00001738	64
+87	19	0.1	0
+87	19	0.2	0
+87	19	0.3	0
+87	19	0.4	0
+87	19	0.5	0
+87	19	0.6	0
+87	19	0.7	0
+87	19	0.8	0
+87	19	0.9	0
+87	19	1	0
+87	75	1.00001743	66092943.201377
+88	20	1.00000581	64
+88	62	1.00001743	64
+89	20	1.00000581	64
+89	62	1.00001743	64
+90	21	1.00000581	64
+90	63	1.00001743	64
+91	21	1.00000581	64
+91	63	1.00001743	64
+92	22	1.00000581	64
+92	64	1.00001743	64
+93	22	1.00000581	64
+93	64	1.00001743	64
+94	23	1.00000581	46
+94	24	1.00000581	46
+94	25	1.00000581	46
+94	65	1.00001743	46
+94	66	1.00001743	46
+94	67	1.00001743	46
+95	26	1.00000581	28
+95	27	1.00000581	28
+95	28	1.00000581	28
+96	29	1.00000581	28
+96	30	1.00000581	28
+96	31	1.00000581	28
+97	32	1.00000581	368
+98	32	0.1	0
+98	32	0.2	0
+98	32	0.3	0
+98	32	0.4	0
+98	32	0.5	0
+98	32	0.6	0
+98	32	0.7	0
+98	32	0.8	0
+98	32	0.9	0
+98	32	1	0
+98	75	1.00001743	21113023.522662
+99	32	1.00000581	0
+100	32	1.00000581	368
+101	32	0.1	0
+101	32	0.2	0
+101	32	0.3	0
+101	32	0.4	0
+101	32	0.5	0
+101	32	0.6	0
+101	32	0.7	0
+101	32	0.8	0
+101	32	0.9	0
+101	32	1	0
+101	75	1.00001743	21113023.522662
+102	32	1.00000581	46
+103	32	0.1	0
+103	32	0.2	0
+103	32	0.3	0
+103	32	0.4	0
+103	32	0.5	0
+103	32	0.6	0
+103	32	0.7	0
+103	32	0.8	0
+103	32	0.9	0
+103	32	1	0
+103	75	1.00001743	33.046471600688
+104	33	1.00000581	368
+105	33	0.1	0
+105	33	0.2	0
+105	33	0.3	0
+105	33	0.4	0
+105	33	0.5	0
+105	33	0.6	0
+105	33	0.7	0
+105	33	0.8	0
+105	33	0.9	0
+105	33	1	0
+105	75	1.00001743	21113023.522662
+106	33	1.00000581	0
+107	33	1.00000581	368
+108	33	0.1	0
+108	33	0.2	0
+108	33	0.3	0
+108	33	0.4	0
+108	33	0.5	0
+108	33	0.6	0
+108	33	0.7	0
+108	33	0.8	0
+108	33	0.9	0
+108	33	1	0
+108	75	1.00001743	21113023.522662
+109	33	1.00000581	46
+110	33	0.1	0
+110	33	0.2	0
+110	33	0.3	0
+110	33	0.4	0
+110	33	0.5	0
+110	33	0.6	0
+110	33	0.7	0
+110	33	0.8	0
+110	33	0.9	0
+110	33	1	0
+110	75	1.00001743	33.046471600688
+111	34	1.00000581	368
+112	34	0.1	0
+112	34	0.2	0
+112	34	0.3	0
+112	34	0.4	0
+112	34	0.5	0
+112	34	0.6	0
+112	34	0.7	0
+112	34	0.8	0
+112	34	0.9	0
+112	34	1	0
+112	75	1.00001743	21113023.522662
+113	34	1.00000581	0
+114	34	1.00000581	368
+115	34	0.1	0
+115	34	0.2	0
+115	34	0.3	0
+115	34	0.4	0
+115	34	0.5	0
+115	34	0.6	0
+115	34	0.7	0
+115	34	0.8	0
+115	34	0.9	0
+115	34	1	0
+115	75	1.00001743	21113023.522662
+116	34	1.00000581	46
+117	34	0.1	0
+117	34	0.2	0
+117	34	0.3	0
+117	34	0.4	0
+117	34	0.5	0
+117	34	0.6	0
+117	34	0.7	0
+117	34	0.8	0
+117	34	0.9	0
+117	34	1	0
+117	75	1.00001743	33.046471600688
+118	38	1.00001157	64
+119	38	0.1	0
+119	38	0.2	0
+119	38	0.3	0
+119	38	0.4	0
+119	38	0.5	0
+119	38	0.6	0
+119	38	0.7	0
+119	38	0.8	0
+119	38	0.9	0
+119	38	1	0
+119	75	1.00001743	33046471.600688
+120	39	1.00001157	64
+121	39	0.1	0
+121	39	0.2	0
+121	39	0.3	0
+121	39	0.4	0
+121	39	0.5	0
+121	39	0.6	0
+121	39	0.7	0
+121	39	0.8	0
+121	39	0.9	0
+121	39	1	0
+121	75	1.00001743	33046471.600688
+122	40	1.00001157	64
+123	40	0.1	0
+123	40	0.2	0
+123	40	0.3	0
+123	40	0.4	0
+123	40	0.5	0
+123	40	0.6	0
+123	40	0.7	0
+123	40	0.8	0
+123	40	0.9	0
+123	40	1	0
+123	75	1.00001743	33046471.600688
+124	41	1.00001162	64
+125	41	1.00001162	64
+126	42	1.00001162	64
+127	42	1.00001162	64
+128	43	1.00001162	64
+129	43	1.00001162	64
+130	44	1.00001162	46
+131	45	1.00001162	46
+132	46	1.00001162	46
+133	71	1.00001743	250000
+133	72	1.00001743	250000
+133	73	1.00001743	250000
+134	71	1.00001743	0
+134	72	1.00001743	0
+134	73	1.00001743	0
+135	71	1.00001743	0
+135	72	1.00001743	0
+135	73	1.00001743	0
+136	71	1.00001743	257505
+136	71	1.00001743	257505
+137	71	1.00001743	7504
+138	71	1.00001743	0
+139	71	1.00001743	7504
+140	71	1.00001743	250001
+141	71	1.00001743	4
+142	72	1.00001743	257505
+142	72	1.00001743	257505
+143	72	1.00001743	7504
+144	72	1.00001743	0
+145	72	1.00001743	7504
+146	72	1.00001743	250001
+147	72	1.00001743	4
+148	73	1.00001743	257505
+148	73	1.00001743	257505
+149	73	1.00001743	7504
+150	73	1.00001743	0
+151	73	1.00001743	7504
+152	73	1.00001743	250001
+153	73	1.00001743	4
+154	75	0.1	0
+154	75	0.2	0
+154	75	0.3	0
+154	75	0.4	0
+154	75	0.5	0
+154	75	0.6	0
+154	75	0.7	0
+154	75	0.8	0
+154	75	0.9	0
+154	75	1	0
+154	75	1.00001743	0
+155	75	0.1	0
+155	75	0.2	0
+155	75	0.3	0
+155	75	0.4	0
+155	75	0.5	0
+155	75	0.6	0
+155	75	0.7	0
+155	75	0.8	0
+155	75	0.9	0
+155	75	1	0
+155	75	1.00001743	0
+156	75	0.1	0
+156	75	0.2	0
+156	75	0.3	0
+156	75	0.4	0
+156	75	0.5	0
+156	75	0.6	0
+156	75	0.7	0
+156	75	0.8	0
+156	75	0.9	0
+156	75	1	0
+156	75	1.00001743	0
+157	75	0.1	0
+157	75	0.2	0
+157	75	0.3	0
+157	75	0.4	0
+157	75	0.5	0
+157	75	0.6	0
+157	75	0.7	0
+157	75	0.8	0
+157	75	0.9	0
+157	75	1	0
+157	75	1.00001743	0
+158	75	0.1	0
+158	75	0.2	0
+158	75	0.3	0
+158	75	0.4	0
+158	75	0.5	0
+158	75	0.6	0
+158	75	0.7	0
+158	75	0.8	0
+158	75	0.9	0
+158	75	1	0
+158	75	1.00001743	0
+159	75	0.1	0
+159	75	0.2	0
+159	75	0.3	0
+159	75	0.4	0
+159	75	0.5	0
+159	75	0.6	0
+159	75	0.7	0
+159	75	0.8	0
+159	75	0.9	0
+159	75	1	0
+159	75	1.00001743	0
+160	75	0.1	0
+160	75	0.2	0
+160	75	0.3	0
+160	75	0.4	0
+160	75	0.5	0
+160	75	0.6	0
+160	75	0.7	0
+160	75	0.8	0
+160	75	0.9	0
+160	75	1	0
+160	75	1.00001743	0
+161	75	0.1	0
+161	75	0.2	0
+161	75	0.3	0
+161	75	0.4	0
+161	75	0.5	0
+161	75	0.6	0
+161	75	0.7	0
+161	75	0.8	0
+161	75	0.9	0
+161	75	1	0
+161	75	1.00001743	0
+162	75	0.1	0
+162	75	0.2	0
+162	75	0.3	0
+162	75	0.4	0
+162	75	0.5	0
+162	75	0.6	0
+162	75	0.7	0
+162	75	0.8	0
+162	75	0.9	0
+162	75	1	0
+162	75	1.00001743	0
+163	75	0.1	0
+163	75	0.2	0
+163	75	0.3	0
+163	75	0.4	0
+163	75	0.5	0
+163	75	0.6	0
+163	75	0.7	0
+163	75	0.8	0
+163	75	0.9	0
+163	75	1	0
+163	75	1.00001743	0
+164	75	0.1	0
+164	75	0.2	0
+164	75	0.3	0
+164	75	0.4	0
+164	75	0.5	0
+164	75	0.6	0
+164	75	0.7	0
+164	75	0.8	0
+164	75	0.9	0
+164	75	1	0
+164	75	1.00001743	0
+165	75	0.1	0
+165	75	0.2	0
+165	75	0.3	0
+165	75	0.4	0
+165	75	0.5	0
+165	75	0.6	0
+165	75	0.7	0
+165	75	0.8	0
+165	75	0.9	0
+165	75	1	0
+165	75	1.00001743	0
+166	75	0.1	0
+166	75	0.2	0
+166	75	0.3	0
+166	75	0.4	0
+166	75	0.5	0
+166	75	0.6	0
+166	75	0.7	0
+166	75	0.8	0
+166	75	0.9	0
+166	75	1	0
+166	75	1.00001743	0
+167	75	0.1	0
+167	75	0.2	0
+167	75	0.3	0
+167	75	0.4	0
+167	75	0.5	0
+167	75	0.6	0
+167	75	0.7	0
+167	75	0.8	0
+167	75	0.9	0
+167	75	1	0
+167	75	1.00001743	0
+168	75	0.1	0
+168	75	0.2	0
+168	75	0.3	0
+168	75	0.4	0
+168	75	0.5	0
+168	75	0.6	0
+168	75	0.7	0
+168	75	0.8	0
+168	75	0.9	0
+168	75	1	0
+168	75	1.00001743	0
+169	75	0.1	0
+169	75	0.2	0
+169	75	0.3	0
+169	75	0.4	0
+169	75	0.5	0
+169	75	0.6	0
+169	75	0.7	0
+169	75	0.8	0
+169	75	0.9	0
+169	75	1	0
+169	75	1.00001743	0
+170	75	0.1	0
+170	75	0.2	0
+170	75	0.3	0
+170	75	0.4	0
+170	75	0.5	0
+170	75	0.6	0
+170	75	0.7	0
+170	75	0.8	0
+170	75	0.9	0
+170	75	1	0
+170	75	1.00001743	0
+171	75	0.1	0
+171	75	0.2	0
+171	75	0.3	0
+171	75	0.4	0
+171	75	0.5	0
+171	75	0.6	0
+171	75	0.7	0
+171	75	0.8	0
+171	75	0.9	0
+171	75	1	0
+171	75	1.00001743	0
+172	75	0.1	0
+172	75	0.2	0
+172	75	0.3	0
+172	75	0.4	0
+172	75	0.5	0
+172	75	0.6	0
+172	75	0.7	0
+172	75	0.8	0
+172	75	0.9	0
+172	75	1	0
+172	75	1.00001743	0
+173	75	0.1	0
+173	75	0.2	0
+173	75	0.3	0
+173	75	0.4	0
+173	75	0.5	0
+173	75	0.6	0
+173	75	0.7	0
+173	75	0.8	0
+173	75	0.9	0
+173	75	1	0
+173	75	1.00001743	0
+174	75	0.1	0
+174	75	0.2	0
+174	75	0.3	0
+174	75	0.4	0
+174	75	0.5	0
+174	75	0.6	0
+174	75	0.7	0
+174	75	0.8	0
+174	75	0.9	0
+174	75	1	0
+174	75	1.00001743	0
+175	75	0.1	0
+175	75	0.2	0
+175	75	0.3	0
+175	75	0.4	0
+175	75	0.5	0
+175	75	0.6	0
+175	75	0.7	0
+175	75	0.8	0
+175	75	0.9	0
+175	75	1	0
+175	75	1.00001743	0
+176	75	0.1	0
+176	75	0.2	0
+176	75	0.3	0
+176	75	0.4	0
+176	75	0.5	0
+176	75	0.6	0
+176	75	0.7	0
+176	75	0.8	0
+176	75	0.9	0
+176	75	1	0
+176	75	1.00001743	0
+177	75	0.1	0
+177	75	0.2	0
+177	75	0.3	0
+177	75	0.4	0
+177	75	0.5	0
+177	75	0.6	0
+177	75	0.7	0
+177	75	0.8	0
+177	75	0.9	0
+177	75	1	0
+177	75	1.00001743	0
+
